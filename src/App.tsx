@@ -1,12 +1,10 @@
 import Editor from "./components/Editor"
 import { init_markdown } from "./config"
-import ChangeThemeButton from "./components/ChangeThemeButton"
 
 export default function App() {
 
     return (
         <>
-            <ChangeThemeButton />
             <main className="px-10 markdown-body">
                 <Editor
                     markdown={init_markdown}
