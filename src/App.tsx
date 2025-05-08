@@ -5,7 +5,7 @@ export default function App() {
 
     return (
         <>
-            <main className="px-10 markdown-body">
+            <main className="max-w-[850px] mx-auto mt-[12vh]">
                 <Editor
                     markdown={init_markdown}
                     placeholder="Escriba aquí..."

@@ -5,68 +5,58 @@
 /* General styles */
 body {
     font-family: monospace;
-    line-height: 1.6;
-    background-color: #333;
-    color: #f9f9f9;
-}
-
-/* Headings */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    margin: 1em 0 0.5em;
-    line-height: 1.2;
+    background-color: #252525;
+    color: #e4e4e4;
 }
 
 h1 {
+    color: #4db8ff;
     font-size: 2em;
     padding-bottom: 0.3em;
-    border-bottom: 4px solid #3681b3;
+    line-height: 1.2;
 }
 
 h2 {
-    font-size: 1.75em;
+    font-size: 1.7em;
+    color: #43b4ff;
+    line-height: 1.2;
     padding-bottom: 0.3em;
-    border-bottom: 2px solid #3681b3;
 }
 
 h3 {
-    font-size: 1.5em;
-    padding: .1em 0 .1em .4em;
-    border-left: 5px solid #3681b3;
-}
-
-h4 {
-    font-size: 1.25em;
-    padding: .1em 0 .1em .4em;
-    border-left: 2.5px solid #3681b3;
+    font-size: 1.4em;
+    color: #2b8ecf;
+    line-height: 1.2;
+    padding-bottom: 0.3em;
 }
 
 /* Paragraphs */
 p {
+    font-size: 1.1em;
     margin: 1em 0;
-    line-height: 1.6;
+    line-height: 1.5lh;
 }
 
 /* Blockquotes */
 blockquote {
-    margin: 1em 0;
+    margin: 0;
     padding: 1em 1em;
     border-left: 5px solid #ccc;
-    background-color: #666;
-    color: #f1f1f1;
-    font-style: italic;
+    background-color: rgba(230, 230, 230, 0.2);
+    font-size: 1.1em;
 }
 
 /* Lists */
 ul,
 ol {
     margin: 1em 0;
-    padding: 0 1.5em;
+    padding: 0 1em;
     list-style: none;
+    font-size: 1.1em;
+}
+
+ul ul {
+    margin: 0;
 }
 
 li {
@@ -74,19 +64,21 @@ li {
 }
 
 li:not(:has(ul))::before {
-    content: "◆";
-    color: #3681b3;
-    width: 1em;
+    content: "─";
+    color: #43b4ff;
+    padding-right: .5em;
     display: inline-block;
 }
 
 /* Inline elements */
 strong {
     font-weight: bold;
+    color: #fff;
 }
 
 em {
     font-style: italic;
+    color: #ffffff9f;
 }
 
 del {

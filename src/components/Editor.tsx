@@ -3,7 +3,6 @@ import {
     listsPlugin,
     quotePlugin,
     thematicBreakPlugin,
-    markdownShortcutPlugin,
     MDXEditor,
     type MDXEditorProps,
     jsxPlugin,
@@ -14,12 +13,11 @@ export default function Editor(props: MDXEditorProps) {
         <MDXEditor
             plugins={[
                 headingsPlugin({
-                    allowedHeadingLevels: [1, 2, 3, 4]
+                    allowedHeadingLevels: [1, 2, 3]
                 }),
                 listsPlugin(),
                 quotePlugin(),
                 thematicBreakPlugin(),
-                markdownShortcutPlugin(),
                 jsxPlugin()
             ]}
             {...props}
