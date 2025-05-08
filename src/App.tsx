@@ -1,15 +1,35 @@
 import Editor from "./components/Editor"
 import { init_markdown } from "./config"
+import Navbar from "./components/Navbar"
+//import html2pdf from 'html2pdf.js';
+import { useRef } from "react";
+import { type MDXEditorMethods } from "@mdxeditor/editor";
 
 export default function App() {
 
+    const editor = useRef<MDXEditorMethods>(null);
+
+    const downloadMarkdown = () => {
+        if(!editor.current) return;
+        const content = new Blob([editor.current.getMarkdown()], {type: 'text/plain'});
+        const url = URL.createObjectURL(content);
+
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `${(new Date()).toLocaleDateString()}_notes.md`;
+        link.click();
+        URL.revokeObjectURL(url);
+    }
+
     return (
         <>
+            <Navbar onDownloadMd={downloadMarkdown}></Navbar>
             <main className="max-w-[850px] mx-auto mt-[12vh]">
                 <Editor
                     markdown={init_markdown}
                     placeholder="Escriba aquí..."
                     autoFocus
+                    ref={editor}
                     contentEditableClassName="outline-none min-h-screen max-w-none text-lg px-8 py-5 caret-yellow-500 prose prose-invert prose-p:my-3 prose-p:leading-relaxed prose-headings:my-4 prose-blockquote:my-4 prose-ul:my-2 prose-li:my-0 prose-code:px-1 prose-code:text-red-500 prose-code:before:content-[''] prose-code:after:content-['']"
                 ></Editor>
             </main>

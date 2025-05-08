@@ -1,26 +1,31 @@
+import { forwardRef } from 'react';
 import {
     headingsPlugin,
     listsPlugin,
     quotePlugin,
     thematicBreakPlugin,
     MDXEditor,
-    type MDXEditorProps,
+    markdownShortcutPlugin,
     jsxPlugin,
-} from '@mdxeditor/editor'
+    type MDXEditorProps,
+    type MDXEditorMethods,
+} from '@mdxeditor/editor';
 
-export default function Editor(props: MDXEditorProps) {
+const Editor = forwardRef<MDXEditorMethods, MDXEditorProps>((props, ref) => {
     return (
         <MDXEditor
             plugins={[
-                headingsPlugin({
-                    allowedHeadingLevels: [1, 2, 3]
-                }),
+                headingsPlugin({ allowedHeadingLevels: [1, 2, 3] }),
                 listsPlugin(),
                 quotePlugin(),
                 thematicBreakPlugin(),
-                jsxPlugin()
+                markdownShortcutPlugin(),
+                jsxPlugin(),
             ]}
             {...props}
+            ref={ref}
         />
-    )
-}
+    );
+});
+
+export default Editor;
