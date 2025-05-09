@@ -23,12 +23,12 @@ function PDFIcon(){
     </svg>)
 }
 
-export default function Navbar(props: { onDownloadMd: () => void }){
+export default function Navbar(props: { onDownloadMd: () => void, onDownloadPdf: () => void, onCopy: () => void }){
     return (
     <nav>
-        <button onClick={props.onDownloadMd}><FileIcon/></button>
-        <button><CopyPasteIcon/></button>
-        <button><PDFIcon/></button>
+        <button title="Descargar" onClick={props.onDownloadMd}><FileIcon/></button>
+        <button title="Copiar" onClick={props.onCopy}><CopyPasteIcon/></button>
+        <button title="Guardar PDF" onClick={props.onDownloadPdf}><PDFIcon/></button>
     </nav>
     )
 }
